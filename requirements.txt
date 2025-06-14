@@ -1,25 +1,11 @@
-with open("requirements_compatible.txt", "w") as f:
-    f.write("""\
-numpy==1.26.4
-typing-extensions==4.12.2
-protobuf==4.23.2
-tqdm==4.65.0
-psutil==5.9.5
-pillow==9.5.0
-tensorflow==2.18.0
-tf-keras==2.18.0
-tensorflow-text==2.18.1
-tensorflow-decision-forests==1.11.0
+numpy==1.23.5
+onnxruntime-gpu==1.14.1
+opencv-python==4.6.0.66
 torch==2.0.1+cu118
 torchvision==0.15.2+cu118
 torchaudio==2.0.2+cu118
---extra-index-url https://download.pytorch.org/whl/cu118
-opencv-python==4.7.0.72
-onnx==1.14.0
-onnxruntime-gpu==1.15.0
-insightface==0.7.3
-opennsfw2==0.10.2
-gfpgan==1.3.8
-tk==0.1.0
-customtkinter==5.1.3
-""")
+pillow
+matplotlib
+scipy
+tqdm
+pyyaml
