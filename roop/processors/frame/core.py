@@ -54,11 +54,21 @@ def multi_process_frame(source_path: str, temp_frame_paths: List[str], process_f
             future.result()
 
 
+import cv2  # Asegúrate de tener esta línea al principio si no está
+
 def create_queue(temp_frame_paths: List[str]) -> Queue[str]:
     queue: Queue[str] = Queue()
     for frame_path in temp_frame_paths:
-        queue.put(frame_path)
+        if os.path.exists(frame_path):
+            image = cv2.imread(frame_path)
+            if image is not None:
+                queue.put(frame_path)
+            else:
+                print(f'[WARNING] Frame inválido (no se puede leer): {frame_path}')
+        else:
+            print(f'[WARNING] Frame no encontrado: {frame_path}')
     return queue
+
 
 
 def pick_queue(queue: Queue[str], queue_per_future: int) -> List[str]:
