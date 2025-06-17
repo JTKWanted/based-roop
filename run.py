@@ -1,9 +1,9 @@
 code = """
 from roop import core
 
-core.roop.globals.source_path = "/content/based-roop/source.jpg"
-core.roop.globals.target_path = "/content/based-roop/target.mp4"
-core.roop.globals.output_path = "/content/based-roop/result.mp4"
+core.roop.globals.source_path = "/content/based-roop/CARMEN/RostroCarmen.png"
+core.roop.globals.target_path = "/content/based-roop/CARMEN/video.mp4"
+core.roop.globals.output_path = "/content/based-roop/CARMEN/result.mp4"
 
 core.roop.globals.frame_processors = ['face_swapper']
 core.roop.globals.keep_fps = True
