@@ -1,16 +1,24 @@
+code = """
 from roop import core
 
-# Cargar tu imagen fuente (cara) y destino (video o imagen)
-SOURCE_PATH = '/content/source.jpg'
-TARGET_PATH = '/content/target.mp4'  # Puede ser .jpg, .png o .mp4
-OUTPUT_PATH = '/content/result.mp4'  # o .jpg
+core.roop.globals.source_path = "/content/based-roop/source.jpg"
+core.roop.globals.target_path = "/content/based-roop/target.mp4"
+core.roop.globals.output_path = "/content/based-roop/result.mp4"
 
-# Ejecutar el face swap
-core.run(
-    source_path=SOURCE_PATH,
-    target_path=TARGET_PATH,
-    output_path=OUTPUT_PATH,
-    frame_processors=[],
-    keep_fps=True,
-    many_faces=False
-)
+core.roop.globals.frame_processors = ['face_swapper']
+core.roop.globals.keep_fps = True
+core.roop.globals.keep_audio = True
+core.roop.globals.keep_frames = False
+core.roop.globals.many_faces = False
+core.roop.globals.video_encoder = 'libx264'
+core.roop.globals.video_quality = 18
+core.roop.globals.max_memory = 8
+core.roop.globals.execution_providers = ['CPUExecutionProvider']
+core.roop.globals.execution_threads = 4
+core.roop.globals.headless = True
+
+core.run()
+"""
+
+with open("/content/based-roop/run.py", "w") as f:
+    f.write(code)
